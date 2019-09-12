@@ -32,7 +32,7 @@ cout<<(hour<10?"0":"")<<hour<<":"<<(minute<10?"0":"")<<minute;
 }
 void Time::printStandard()
 {
-cout<<((hour==0 ||hour==12)?12:hour-12)<<":"<<(minute<10?"0":"")<<minute<<":"<<(second<10?"0":"")<<second<<(hour<12?"AM":"PM");
+cout<<((hour==0 ||hour==12)?12:hour%12)<<":"<<(minute<10?"0":"")<<minute<<":"<<(second<10?"0":"")<<second<<(hour<12?"AM":"PM");
 
 }
 int main()
@@ -44,5 +44,8 @@ cout<<"military time is:";
 t.printMilitary();
 cout<<"\nstandard time is:";
 t.printStandard();
-
+t.setTime(99,99,99);
+cout<<"\nafter attempting invalid time:";
+t.printStandard();
+return 0;
 }
